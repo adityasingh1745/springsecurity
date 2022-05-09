@@ -13,4 +13,14 @@ public class HomeResource {
 	public String home() {
 		return ("<h1> This world shall know PAIN !!! </h1>");
 	}
+	
+	@GetMapping("/user")
+	public String user() {
+		return ("<h1> This world shall know PAIN !!! USER</h1>");
+	}
+	
+	@GetMapping("/admin")
+	public String admin() {
+		return ("<h1> This world shall know PAIN !!! ADMIN</h1>");
+	}
 }
