@@ -21,15 +21,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.jdbcAuthentication().dataSource(dataSource)
-		.withDefaultSchema()
-		.withUser(
-				User.withUsername("aditya")
-				.password("pass")
-				.roles("USER")
-				)
-		.withUser(User.withUsername("virat")
-				.password("pass")
-				.roles("ADMIN"));
+		.usersByUsernameQuery("select username, password, enabled from users "+
+		"where username = ?")
+		.authoritiesByUsernameQuery("select username, authority from authorities"+
+		"where username = ?");
 	}
 	
 	@Bean  // @Bean mean hey sprig create and inject this bean [PasswordEncoder]
