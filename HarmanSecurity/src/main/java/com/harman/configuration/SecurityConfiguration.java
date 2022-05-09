@@ -29,8 +29,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 				)
 		.withUser(User.withUsername("virat")
 				.password("pass")
-				.roles("ADMIN")
-				);
+				.roles("ADMIN"));
 	}
 	
 	@Bean  // @Bean mean hey sprig create and inject this bean [PasswordEncoder]
